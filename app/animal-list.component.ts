@@ -4,14 +4,22 @@ import { Animal } from './animal.model';
 @Component({
   selector: 'animal-list',
   template: `
-  <p>Filter Animals</p>
+  <h4>Filter Animals</h4>
+  <h5>By Age</h5>
   <select (change)="onChange($event.target.value)">
     <option value="all">All Animals</option>
     <option value="young">Animals Aged 2 and Younger</option>
     <option value="old">Animals Older Than 2</option>
   </select>
+  <h5>By Diet</h5>
+  <select (change)="onChangeDiet($event.target.value)">
+    <option value="all">All Animals</option>
+    <option value="omnivore">Omnivores</option>
+    <option value="herbivore">Herbivores</option>
+    <option value="carnivore">Carnivores</option>
+  </select>
   <ul>
-    <li *ngFor="let currentAnimal of childAnimalList | age:filterByAge ">
+    <li *ngFor="let currentAnimal of childAnimalList | age:filterByAge | diet:filterByDiet">
       <h3>{{currentAnimal.species}}</h3>
       <h4>{{currentAnimal.name}}</h4>
       <p>Age: {{currentAnimal.age}}</p>
@@ -36,8 +44,14 @@ export class AnimalListComponent {
 
   filterByAge: string = "all";
 
+  filterByDiet: string = "all";
+
   onChange(optionFromMenu) {
     this.filterByAge = optionFromMenu;
+  }
+
+  onChangeDiet(optionFromMenu) {
+    this.filterByDiet = optionFromMenu;
   }
 
   editAnimalHasBeenClicked(animalToEdit: Animal) {
