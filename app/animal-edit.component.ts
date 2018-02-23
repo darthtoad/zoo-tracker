@@ -14,7 +14,11 @@ import { Animal } from './animal.model';
       <label>Age:</label>
       <input type="number" [(ngModel)]="childEditAnimal.age">
       <label>Diet:</label>
-      <input [(ngModel)]="childEditAnimal.diet">
+      <select [(ngModel)]="childEditAnimal.diet">
+        <option [attr.value]="Herbivore">Herbivore</option>
+        <option [attr.value]="Omnivore">Omnivore</option>
+        <option [attr.value]="Carnivore">Carnivore</option>
+      </select>
       <label>Location: </label>
       <input [(ngModel)]="childEditAnimal.location">
       <label>Number of Caretakers: </label>

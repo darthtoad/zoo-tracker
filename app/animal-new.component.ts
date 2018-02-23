@@ -12,8 +12,11 @@ import { Animal } from './animal.model';
       <input #name>
       <label>Age: </label>
       <input type="number" #age>
-      <label>Diet: </label>
-      <input #diet>
+      <select #diet>
+        <option [attr.value]="Herbivore">Herbivore</option>
+        <option [attr.value]="Omnivore">Omnivore</option>
+        <option [attr.value]="Carnivore">Carnivore</option>
+      </select>
       <label>Location: </label>
       <input #location>
       <label>Number of Caretakers: </label>
