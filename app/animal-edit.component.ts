@@ -30,6 +30,7 @@ import { Animal } from './animal.model';
       <label>Dislikes: </label>
       <input [(ngModel)]="childEditAnimal.dislikes">
       <button (click)="finishEditingHasBeenClicked()">Finish editing</button>
+      <hr>
     </div>
   `
 })
